@@ -1,17 +1,38 @@
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import './aboutUs.js';
 
 function Header() {
+  const navigate = useNavigate();
+
+  const handleHomeClick = () => {
+    // Navigate to the home page when "Identification of consumable mango" is clicked
+    navigate('/');
+  };
+
+  const handleAboutUsClick = () => {
+    // Navigate to the about us page when "About Us" is clicked
+    navigate('/aboutUs');
+  };
+
   return (
     <div>
-      <div className='bg-green-400 py-8 grid-rows-1 flex space-x-2'>
+      <div className='flex grid-rows-1 py-8 space-x-2 bg-green-400'>
         <div>
-          <h2 className='font-bold py-2 text-left px-5 text-4xl '>Identification of consumable mango</h2>
+          {/* Use the Link component to make the text clickable */}
+          <Link to="/" onClick={handleHomeClick}>
+            <h2 className='px-5 py-2 text-4xl font-bold text-left '>Identification of consumable mango</h2>
+          </Link>
         </div>
-        <div className='flex-grow  text-center '>
-          <h2 className='font-bold  text-2xl px-5 py-3'></h2>
+        <div className='flex-grow text-center '>
+          {/* You can add a Link for the middle section if needed */}
+          <h2 className='px-5 py-3 text-2xl font-bold'></h2>
         </div>
-        <div className='flex-grow  text-center '>
-          <h2 className='font-bold  text-2xl px-5 py-3'>About Us</h2>
+        <div className='flex-grow text-center '>
+          {/* Use the Link component to make the text clickable */}
+          <Link to="/aboutUs" onClick={handleAboutUsClick}>
+            <h2 className='px-5 py-3 text-2xl font-bold'>About Us</h2>
+          </Link>
         </div>
       </div>
     </div>
